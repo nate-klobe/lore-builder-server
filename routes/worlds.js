@@ -17,10 +17,11 @@ router.route('/:id').get((req, res) => {
 router.route('/create').post((req, res) => {
 
     const world_name = req.body.world_name;
+    const creator = req.body.creator;
     const snippet = req.body.snippet;
     const description = req.body.description;
 
-    const newWorld = new World({world_name, snippet, description});
+    const newWorld = new World({world_name, creator, snippet, description});
 
     newWorld.save()
         .then(() => res.json(`New world: ${world_name} successfully created.`))

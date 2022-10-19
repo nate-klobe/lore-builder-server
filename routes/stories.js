@@ -17,11 +17,12 @@ router.route('/:id').get((req, res) => {
 router.route('/create').post((req, res) => {
 
     const story_name = req.body.story_name;
+    const creator = req.body.creator;
     const world_id = req.body.world_id;
     const snippet = req.body.snippet;
     const description = req.body.description;
 
-    const newStory = new Story({story_name, world_id, snippet, description});
+    const newStory = new Story({story_name, creator, world_id, snippet, description});
 
     newStory.save()
         .then(() => res.json(`New story: ${story_name} successfully created.`))

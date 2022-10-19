@@ -7,6 +7,7 @@ const { Schema, default: mongoose } = require('mongoose');
  *  */ 
 const storySchema = new Schema({
     story_name: String,
+    creator: mongoose.Types.ObjectId,
     world_id: mongoose.Types.ObjectId,
     snippet: String,
     description: String,

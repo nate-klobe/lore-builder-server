@@ -23,9 +23,11 @@ connection.once('open', () => {
 
 const worldRouter = require('./routes/worlds');
 const storyRouter = require('./routes/stories');
+const userRouter = require('./routes/users');
 
 app.use('/worlds', worldRouter);
 app.use('/stories', storyRouter);
+app.use('/users', userRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
