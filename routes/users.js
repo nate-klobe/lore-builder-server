@@ -16,24 +16,25 @@ router.route('/:id').get((req, res) => {
 
 router.route('/create').post((req, res) => {
 
-    const user_name = req.body.user_name;
-    const world_id = req.body.world_id;
-    const snippet = req.body.snippet;
-    const description = req.body.description;
+    const username = req.body.username;
+    const first_name = req.body.first_name;
+    const last_name = req.body.last_name;
+    const email_address = req.body.email_address;
 
-    const newUser = new User({user_name, world_id, snippet, description});
+    const newUser = new User({username, first_name, last_name, email_address});
 
     newUser.save()
-        .then(() => res.json(`New user: ${user_name} successfully created.`))
+        .then(() => res.json(`New user: ${username} successfully created.`))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/update/:id').post((req, res) => {
     User.findById(req.params.id)
         .then(user => {
-            user.user_name = req.body.user_name;
-            user.snippet = req.body.snippet;
-            user.description = req.body.description;
+            user.username = req.body.username;
+            user.first_name = req.body.first_name;
+            user.last_name = req.body.last_name;
+            user.email_address = req.body.email_address;
 
             user.save()
                 .then(() => res.json('User successfully updated.'))
