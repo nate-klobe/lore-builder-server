@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const worldRouter = require('./routes/world.router')
 const storyRouter = require('./routes/story.router')
 const userRouter = require('./routes/user.router')
+const journalRouter = require('./routes/journal.router')
 
 require('dotenv').config()
 
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 app.use('/worlds', worldRouter)
 app.use('/stories', storyRouter)
 app.use('/users', userRouter)
+app.use('/stories/:storyId/')
 
 mongoose.connect(process.env.ATLAS_URI)
     .then(() => {
