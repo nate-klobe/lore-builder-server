@@ -1,22 +1,12 @@
-const { Schema, default: mongoose } = require('mongoose');
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-/**
- *  
- *  
- * 
- *  */ 
 const storySchema = new Schema({
     story_name: String,
     creator: mongoose.Types.ObjectId,
     world_id: mongoose.Types.ObjectId,
-    snippet: String,
     description: String,
 
+}, { timestamps: true });
 
-}, {
-    timestamps: true,
-});
-
-const Story = mongoose.model('Story', storySchema);
-
-module.exports = Story;
+module.exports = mongoose.model('Story', storySchema)
