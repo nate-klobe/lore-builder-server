@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 app.use('/worlds', worldRouter)
 app.use('/stories', storyRouter)
 app.use('/users', userRouter)
-app.use('/stories/:storyId/')
+app.use('/journals/', journalRouter)
 
 mongoose.connect(process.env.ATLAS_URI)
     .then(() => {
